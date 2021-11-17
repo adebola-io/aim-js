@@ -1,1 +1,3 @@
-select('html');
+var doNothing = require("./src/ts/doNothing");
+
+doNothing();
