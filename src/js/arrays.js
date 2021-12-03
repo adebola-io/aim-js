@@ -14,7 +14,8 @@
 //     return pairs;
 // }
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getProductPairs = exports.getSumPairs = void 0;
+exports.shiftAllZeros = exports.getMaxProduct = exports.getProductPairs = exports.getSumPairs = void 0;
+var testArray = [0, 9, 0, 14];
 /**
  * Returns an multidimensional array containing the pairs of values in a given array that add up to a specifc number.
  * @param sum The final sum to check for.
@@ -55,4 +56,28 @@ function getProductPairs(product, arr) {
     return pairs;
 }
 exports.getProductPairs = getProductPairs;
-console.log(getProductPairs(24, [1, 2, 3, 4, 5, 6, 12, 8, 9]));
+/**
+ * Returns a number that represents the highest value that can be gotten from multiplying any two numbers in the array.
+ * @param arr Array to be evaluated.
+ * @returns {number} Maximum product
+ */
+function getMaxProduct(arr) {
+    var sortedArray = arr.sort(function (a, b) { return a - b; });
+    return sortedArray[sortedArray.length - 1] * sortedArray[sortedArray.length - 2];
+}
+exports.getMaxProduct = getMaxProduct;
+/**
+ * Moves all the zeroes in an array towards the end.
+ * @param arr Array to be evaluted
+ * @returns {Array} Resulting array.
+ */
+function shiftAllZeros(arr) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] === 0) {
+            arr.splice(i, 1);
+            arr.push(0);
+        }
+    }
+    return arr;
+}
+exports.shiftAllZeros = shiftAllZeros;
