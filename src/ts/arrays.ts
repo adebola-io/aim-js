@@ -14,6 +14,8 @@
 // }
 
 
+var testArray = [0, 9, 0, 14];
+
 /**
  * Returns an multidimensional array containing the pairs of values in a given array that add up to a specifc number.
  * @param sum The final sum to check for.
@@ -52,4 +54,27 @@ export function getProductPairs(product: number, arr: Array<number>) {
     return pairs;
 }
 
-console.log(getProductPairs(24, [1, 2, 3, 4, 5, 6, 12, 8, 9]))
+/**
+ * Returns a number that represents the highest value that can be gotten from multiplying any two numbers in the array.
+ * @param arr Array to be evaluated.
+ * @returns {number} Maximum product
+ */
+export function getMaxProduct(arr: Array<number>) {
+    let sortedArray = arr.sort((a, b)=>{return a-b});
+    return sortedArray[sortedArray.length-1]*sortedArray[sortedArray.length-2];
+}
+
+/**
+ * Moves all the zeroes in an array towards the end.
+ * @param arr Array to be evaluted
+ * @returns {Array} Resulting array.
+ */
+export function shiftAllZeros(arr: Array<number>) {
+    for (let i = 0; i < arr.length; i++){
+        if (arr[i] === 0){
+            arr.splice(i, 1);
+            arr.push(0);
+        }
+    }
+    return arr;
+}
