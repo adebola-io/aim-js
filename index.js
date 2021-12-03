@@ -1,3 +1,3 @@
-var doNothing = require("./src/ts/doNothing");
+var {log} = require("./src/js/test");
 
-doNothing();
+log();

@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.select = void 0;
 /**
  * Additional DOM Functions.
  * @param elementSelector
@@ -14,12 +17,10 @@ var select = function (elementSelector) {
      * The CSS property to check for.
      * @returns string | number
      */
-    var getComputedPropertyValue = function (property) {
+    var getWindowStyleValue = function (property) {
         var prop = window.getComputedStyle(element, null).getPropertyValue(property);
-        if (prop.substr(-2) === 'px') {
-            return parseInt(prop.slice(0, -2));
-        }
         return prop;
     };
-    return { element: element, getComputedPropertyValue: getComputedPropertyValue };
+    return { element: element, getWindowStyleValue: getWindowStyleValue };
 };
+exports.select = select;
